@@ -1,5 +1,5 @@
 {
-  "name": "Salesforce activity",
+  "name": "Salesforce Monitor CDC",
   "description": "Feed of what's happening in an org",
   "keywords": [
     "salesforce",
