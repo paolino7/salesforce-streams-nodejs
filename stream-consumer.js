@@ -15,10 +15,10 @@ const REDIS_URL = process.env.REDIS_URL;
 if (REDIS_URL == null) {
   throw new Error('Requires REDIS_URL env var.');
 }
-const redisClient  = redis.createClient(REDIS_URL);
+const redisClient  = redis.createClient(REDIS_URL, { tls: { requestCert: true, rejectUnauthorized: false } });
 const publishAsync = promisify(redisClient.publish).bind(redisClient);
 redisClient.on("error", function (err) {
-  logger(`redis stream error: ${err.stack}`);
+  console.error(`redis stream error: ${err.stack}`);
   process.exit(1);
 });
 

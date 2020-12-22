@@ -61,7 +61,7 @@ if (!dev && cluster.isMaster) {
       }
 
       // Setup Redis datastore to receive messages
-      const redisStream = redis.createClient(REDIS_URL);
+      const redisStream = redis.createClient(REDIS_URL, { tls: { requestCert: true, rejectUnauthorized: false }} );
       redisStream.on("error", function (err) {
         console.error(`redis stream error: ${err.stack}`);
         process.exit(1);
@@ -69,7 +69,7 @@ if (!dev && cluster.isMaster) {
       redisStream.subscribe('heartbeat', 'status', 'salesforce');
 
       // Setup Redis datastore to perform queries (separate from subscriber)
-      const redisQuery = redis.createClient(REDIS_URL);
+      const redisQuery = redis.createClient(REDIS_URL, { tls: { requestCert: true, rejectUnauthorized: false }} );
       redisQuery.on("error", function (err) {
         console.error(`redis query error: ${err.stack}`);
         process.exit(1);
