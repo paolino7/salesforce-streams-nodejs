@@ -34,6 +34,7 @@ const messageCallback = (message, salesforceApi) => {
       // publish it to Redis "salesforce" channel
       redisMulti.publish('salesforce', data);
       // add it to the limited-length Redis "salesforce-recent" list
+      redisMulti.lpush('salesforce-pg-list', data);
       redisMulti.lpush('salesforce-recent', data);
       redisMulti.ltrim('salesforce-recent', 0, 99);
       return execMultiAsync();

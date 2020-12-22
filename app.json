@@ -25,6 +25,9 @@
     },
     "stream_consumer": {
       "quantity": 1
+    },
+    "pg_consumer": {
+      "quantity": 1
     }
   },
   "image": "heroku/nodejs",
