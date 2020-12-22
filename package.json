@@ -18,7 +18,7 @@
     "jsforce": "^1.10.1",
     "jsforce-connection": "^2.1.0",
     "next": "^8.0.1",
-    "pg": "^8.5.1",
+    "pg-promise": "^10.8.6",
     "react": "^16.8.2",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.8.2",
